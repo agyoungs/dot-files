@@ -2,25 +2,25 @@ set nocompatible
 
 " ================ Vundle Plugins ====================
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#rc()
 
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
-Plugin 'gmarik/vundle'
-
-" We could also add repositories with a ".git" extension
-Plugin 'scrooloose/nerdtree.git'
-
-Plugin 'Valloric/YouCompleteMe'
-
-" To get plugins from Vim Scripts, you can reference the plugin
-" by name as it appears on the site
-Plugin 'Buffergator'
-
-Plugin 'ctrlpvim/ctrlp.vim.git'
-
+"Plugin 'gmarik/vundle'
+"
+"" We could also add repositories with a ".git" extension
+"Plugin 'scrooloose/nerdtree.git'
+"
+"Plugin 'Valloric/YouCompleteMe'
+"
+"" To get plugins from Vim Scripts, you can reference the plugin
+"" by name as it appears on the site
+"Plugin 'Buffergator'
+"
+"Plugin 'ctrlpvim/ctrlp.vim.git'
+"
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 

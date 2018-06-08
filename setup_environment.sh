@@ -4,6 +4,10 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ ! -d "$DIR/tmux-resurrect" ]; then
   git clone https://github.com/tmux-plugins/tmux-resurrect $DIR/tmux-resurrect
+else
+  cd $DIR/tmux-resurrect
+  git pull
+  cd $DIR
 fi
 
 sed -i '/# Custom Settings (ayoungs)/Q' ~/.bashrc

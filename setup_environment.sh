@@ -17,8 +17,8 @@ export LD_LIBRARY_PATH="\${LD_LIBRARY_PATH}:\${CUDA_HOME}/lib64"
 PATH=\${CUDA_HOME}/bin:\${PATH}
 export PATH
 
-tmux_session=\`tmux display-message -p "#S"\` 
-if [ -d ~/workspaces/\$tmux_session ]; then
+tmux_session=\`tmux display-message -p "#S" 2> /dev/null\` 
+if [ -f ~/workspaces/\$tmux_session/devel/setup.bash ]; then
   . ~/workspaces/\$tmux_session/devel/setup.bash
 fi
 EOT

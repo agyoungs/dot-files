@@ -24,6 +24,11 @@ tmux_session=\`tmux display-message -p "#S" 2> /dev/null\`
 if [ -f ~/workspaces/\$tmux_session/devel/setup.bash ]; then
   . ~/workspaces/\$tmux_session/devel/setup.bash
 fi
+
+# Sets history to append mode
+shopt -s histappend
+# Writes to history every time command prompt is returned
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 EOT
 
 sudo $DIR/scripts/install_scripts.sh

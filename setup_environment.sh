@@ -31,4 +31,5 @@ shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 EOT
 
+./dotfiles/link_dotfiles.sh
 sudo $DIR/scripts/install_scripts.sh

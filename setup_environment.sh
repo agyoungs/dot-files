@@ -29,6 +29,11 @@ fi
 shopt -s histappend
 # Writes to history every time command prompt is returned
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+# This grabs the last ROS_MASTER_URI exported
+# Todo: fix this to use a function
+test=\`grep '^export ROS_MASTER_URI=' \$HISTFILE | tail -1\`
+eval \$test
 EOT
 
 ./dotfiles/link_dotfiles.sh

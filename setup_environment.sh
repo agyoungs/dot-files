@@ -25,6 +25,16 @@ if [ -f ~/workspaces/\$tmux_session/devel/setup.bash ]; then
   . ~/workspaces/\$tmux_session/devel/setup.bash
 fi
 
+# Eternal bash history.
+# ---------------------
+# Undocumented feature which sets the size to "unlimited".
+# http://stackoverflow.com/questions/9457233/unlimited-bash-history
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+# Change the file location because certain bash sessions truncate .bash_history file upon close.
+# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
+export HISTFILE=~/.bash_eternal_history
 # Sets history to append mode
 shopt -s histappend
 # Writes to history every time command prompt is returned
@@ -36,5 +46,6 @@ test=\`grep '^export ROS_MASTER_URI=' \$HISTFILE | tail -1\`
 eval \$test
 EOT
 
+touch ~/.bash_eternal_history
 ./dotfiles/link_dotfiles.sh
 sudo $DIR/scripts/install_scripts.sh

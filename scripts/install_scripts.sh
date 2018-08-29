@@ -21,4 +21,4 @@ export XAUTHORITY=`pgrep -a Xorg | cut -d " " -f 8`
 xset dpms force on
 EOF
 
-cp 99-local.rules /etc/udev/rules.d/
+cp $DIR/99-local.rules /etc/udev/rules.d/

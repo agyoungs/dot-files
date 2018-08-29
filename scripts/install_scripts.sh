@@ -9,7 +9,7 @@ cat <<EOF > /usr/local/bin/displays_off
 #!/bin/bash
 
 export DISPLAY=:0
-export XAUTHORITY=`pgrep -a Xorg | cut -d " " -f 8`
+export XAUTHORITY=`pgrep -a Xorg | grep -oP "(?<=-auth )[^ ]+"`
 xset dpms force off
 EOF
 chmod 755 /usr/local/bin/displays_off
@@ -18,7 +18,7 @@ cat <<EOF > /usr/local/bin/displays_on
 #!/bin/bash
 
 export DISPLAY=:0
-export XAUTHORITY=`pgrep -a Xorg | cut -d " " -f 8`
+export XAUTHORITY=`pgrep -a Xorg | grep -oP "(?<=-auth )[^ ]+"`
 xset dpms force on
 EOF
 chmod 755 /usr/local/bin/displays_on

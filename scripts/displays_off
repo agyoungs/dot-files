@@ -1,6 +1,0 @@
-#!/bin/bash
-
-export DISPLAY=:0
-export XAUTHORITY=/var/lib/mdm/:0.Xauth
-sleep 0.2
-xset dpms force off

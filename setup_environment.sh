@@ -10,6 +10,15 @@ else
   cd $DIR
 fi
 
+# Use the appropriate ros verison
+CODENAME=`sed -n -e '/DISTRIB_CODENAME/ s/.*\= *//p' /etc/lsb-release`
+SOURCE_CMD=""
+if [ "$CODENAME" = "trusty" ] || [ "$CODENAME" = "rosa" ] || [ "$CODENAME" = "rafaela" ] || [ "$CODENAME" = "rebecca" ] || [ "$CODENAME" = "qiana" ] ; then
+  SOURCE_CMD=". /opt/ros/indigo/setup.bash"
+elif [ "$CODENAME" = "xenial" ] || [ "$CODENAME" = "sylvia" ] || [ "$CODENAME" = "sonya" ] || [ "$CODENAME" = "serena" ] || [ "$CODENAME" = "sarah" ] ; then
+  SOURCE_CMD=". /opt/ros/kinetic/setup.bash"
+fi
+
 sed -i '/# Custom Settings (ayoungs)/Q' ~/.bashrc
 cat <<EOT >> ~/.bashrc
 # Custom Settings (ayoungs)
@@ -23,6 +32,8 @@ export PATH
 tmux_session=\`tmux display-message -p "#S" 2> /dev/null\` 
 if [ -f ~/workspaces/\$tmux_session/devel/setup.bash ]; then
   . ~/workspaces/\$tmux_session/devel/setup.bash
+else
+  $SOURCE_CMD
 fi
 
 # Eternal bash history.
@@ -38,7 +49,7 @@ export HISTFILE=~/.bash_eternal_history
 # Sets history to append mode
 shopt -s histappend
 # Writes to history every time command prompt is returned
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a;\$PROMPT_COMMAND"
 
 # This grabs the last ROS_MASTER_URI exported
 # Todo: fix this to use a function

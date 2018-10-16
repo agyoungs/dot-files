@@ -4,9 +4,6 @@ unbind-key m-z
 bind-key m-z send-prefix
 set -g base-index 1
 
-# mouse
-set -g mouse on
-
 # Easy config reload
 bind-key R source-file ~/.tmux.conf \; display-message "tmux.conf reloaded."
 
@@ -99,3 +96,5 @@ set-option -g repeat-time 0
 
 # Add tmux-resurrect to allow saving of sessions
 run-shell ~/environment_setup/tmux-resurrect/resurrect.tmux
+
+# mouse

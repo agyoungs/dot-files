@@ -42,12 +42,12 @@ PROMPT_COMMAND="history -a;\$PROMPT_COMMAND"
 #if [ -f ~/workspaces/\$tmux_session/devel/setup.bash ]; then
 #  . ~/workspaces/\$tmux_session/devel/setup.bash
 #else
-#  LAST_SOURCE="\$(grep '^\. ' \$HISTFILE | tail -1)"
+#  LAST_SOURCE="\$(grep -E '^(\.|source) [a-zA-Z0-9/~\]*setup.bash' \$HISTFILE | tail -1)"
 #  \${LAST_SOURCE/\~/\$HOME}
 #fi
 
-LAST_SOURCE="\$(grep '^\. ' \$HISTFILE | tail -1)"
-\${LAST_SOURCE/\~/\$HOME}
+LAST_SOURCE="\$(grep -E '^(\.|source) [a-zA-Z0-9/~\]*setup.bash' \$HISTFILE | tail -1)"
+`\${LAST_SOURCE}`
 
 # This grabs the last ROS_MASTER_URI exported
 # Todo: fix this to use a function

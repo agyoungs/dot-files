@@ -46,8 +46,8 @@ PROMPT_COMMAND="history -a;\$PROMPT_COMMAND"
 #  \${LAST_SOURCE/\~/\$HOME}
 #fi
 
-LAST_SOURCE="\$(grep -E '^(\.|source) [a-zA-Z0-9/~\]*setup.bash' \$HISTFILE | tail -1)"
-`\${LAST_SOURCE}`
+LAST_SOURCE="\$(grep -E '^(\.|source) [-_a-zA-Z0-9/~\]*setup.bash' \$HISTFILE | tail -1)"
+\${LAST_SOURCE/\~/\$HOME}
 
 # This grabs the last ROS_MASTER_URI exported
 # Todo: fix this to use a function

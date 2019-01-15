@@ -10,6 +10,5 @@ fi
 for git_dir in `find $wd -type d -name '.git'`; do 
   repo_dir=$(sed -r "s|/[^/]+$||" <<< $git_dir)
   echo -e "\e[34m$repo_dir\e[0m"
-  echo "`git -c color.ui=always --git-dir=$git_dir --work-tree=$repo_dir "${@:2}"`"
-  echo
+  echo -e "`git -c color.ui=always --git-dir=$git_dir --work-tree=$repo_dir "${@:2}"`\n"
 done 

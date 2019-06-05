@@ -43,7 +43,7 @@ tmux_session=\`tmux display-message -p "#S" 2> /dev/null\`
 if [ -f ~/workspaces/\$tmux_session/devel/setup.bash ]; then
   . ~/workspaces/\$tmux_session/devel/setup.bash
 else
-  LAST_SOURCE="\$(grep -aE '^(\.|source) [a-zA-Z0-9/~\]*setup.bash' \$HISTFILE | tail -1)"
+  LAST_SOURCE="\$(grep -aE '^(\.|source) [a-zA-Z0-9_/~\]*setup.bash' \$HISTFILE | tail -1)"
   \${LAST_SOURCE/\~/\$HOME}
 fi
 

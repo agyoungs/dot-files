@@ -161,3 +161,6 @@ nnoremap <c-l> <c-w>l
 
 set pastetoggle=<F2>
 set mouse=v
+
+set visualbell
+set t_vb=
